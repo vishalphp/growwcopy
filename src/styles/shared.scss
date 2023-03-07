@@ -1,0 +1,11 @@
+@import './color';
+@import './fonts';
+
+
+.btn{
+    background-color: $primaryClr;
+    width: 100%;
+    padding: 20px 40px;
+    border: 1px solid $primaryClr;
+    color: $constantWhite;
+}

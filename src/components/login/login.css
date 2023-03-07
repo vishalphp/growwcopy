@@ -1,0 +1,52 @@
+.mainbackgroundimage{ 
+ min-height: 100vh;
+ }
+ .companylogo{
+    min-height: 125px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+ }
+ .companylogo img{
+    max-width: 150px;
+ }
+ .formsection{
+    max-width: 800px;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    margin-top: 20px;
+    background: #fff;
+    border-radius: 12px;
+ }
+ .formsection > div{
+    flex: 1;
+ }
+ .leftwraper .lTopText{
+    text-align: left;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 48px;
+    letter-spacing: .2px;
+    color: #fff;
+ }
+ .leftwraper, .rightwraper{
+    padding: 40px;
+ }
+ .wecomemessge{
+    font-size: 34px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    margin-top: 10px;
+ }
+.fieldwrapper{
+    padding: 10px;
+}
+.textClass, .textClass:focus{
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+} 
+
+
