@@ -1,0 +1,9 @@
+.companylogo{
+    min-height: 125px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+ }
+ .companylogo img{
+    max-width: 150px;
+ }

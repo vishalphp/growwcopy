@@ -1,8 +1,10 @@
 import './App.css';
+import './styles/shared.scss';
+
 import Layout from './layouts/Layout';
 import { Routes, Route } from 'react-router-dom';
 import Login  from './components/login/Login';
-import './styles/shared.scss'
+
 
 function App() {
   return ( 
