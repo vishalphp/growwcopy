@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-
+import useAuth from '../../hooks/useAuth';
 
 export default function LoginForm() {
 
@@ -10,6 +10,8 @@ export default function LoginForm() {
     const [password, setPassword] = useState('');
     const [passwordValid, setPasswordValid] = useState(true);
     const [passwordBlur, setPasswordBlur] = useState(false);
+
+    const { loginApi } = useAuth();
     
     const regxEmail = /^[A-Za-z0-9_!#$%&'*+\/=?`{|}~^.-]+@[A-Za-z0-9.-]+$/;
 
@@ -33,9 +35,13 @@ export default function LoginForm() {
     const loginSubmitHandler=(e)=>{
         e.preventDefault();
      
-        
+        loginApi(username, password);
 
-    }
+        setUsername('');
+        setPassword('');
+        setUsernameBlur(false);
+        setPasswordBlur(false);
+    }                                                                                                                                                                 
   
 
   return (
