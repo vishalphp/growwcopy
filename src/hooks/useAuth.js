@@ -1,10 +1,12 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import axios from '../api/BackendApi'
+import LoginContext from '../context/LoginContext'
 
 const LoginURL = '/wp-json/jwt-auth/v1/token';
 
 const useAuth = () => {
 
+    const loginContex = useContext(LoginContext);
    
 
     const loginApi = async(email, password) =>{
@@ -22,7 +24,9 @@ const useAuth = () => {
                     }
                 );
 
-                console.log(responce);
+                const tempLoginData = { username: responce.data.user_email, roles: responce.data.role, authToken: responce.data.token}
+
+                loginContex.setLoginState(tempLoginData);
 
             }catch(e){
                 console.log(e);

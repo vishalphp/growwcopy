@@ -1,5 +1,7 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useContext} from 'react'
 import useAuth from '../../hooks/useAuth';
+
+import LoginContext from '../../context/LoginContext';
 
 export default function LoginForm() {
 
@@ -10,6 +12,8 @@ export default function LoginForm() {
     const [password, setPassword] = useState('');
     const [passwordValid, setPasswordValid] = useState(true);
     const [passwordBlur, setPasswordBlur] = useState(false);
+
+    const loginContex = useContext(LoginContext);
 
     const { loginApi } = useAuth();
     
@@ -31,11 +35,14 @@ export default function LoginForm() {
         password.length > 6 ? setPasswordValid(true) : setPasswordValid(false);
     },[username, password]);
 
+    useEffect(()=>{ 
+            console.log(loginContex.loginState);
+    },[username]);
 
-    const loginSubmitHandler=(e)=>{
+    const loginSubmitHandler= async(e)=>{
         e.preventDefault();
      
-        loginApi(username, password);
+        await loginApi(username, password);
 
         setUsername('');
         setPassword('');
