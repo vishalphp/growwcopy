@@ -6,6 +6,7 @@ import { Routes, Route } from 'react-router-dom';
 import Login  from './components/login/Login';
 import LayoutWithInvestment from './layouts/LayoutWithInvestment';
 import ExplorePage from './components/authPages/explore/ExplorePage';
+import RequiredAuth from './components/login/RequiredAuth';
 
 
 function App() {
@@ -14,8 +15,10 @@ function App() {
          <Route path='/' element={<Layout />} >
                <Route path='login' element={<Login />} />
          </Route>
-         <Route path="/stock/" element={<LayoutWithInvestment />} >
-                  <Route path='explore' element={<ExplorePage />} />
+         <Route element={<RequiredAuth />} >
+            <Route path="/stock/" element={<LayoutWithInvestment />} >
+                      <Route path='explore' element={<ExplorePage />} />
+              </Route>
           </Route>
 
     </Routes>     

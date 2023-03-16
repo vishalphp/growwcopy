@@ -1,0 +1,9 @@
+.tablist{
+    list-style-type: none;
+    display: flex;
+}
+
+.tablist li{
+    padding: 10px 20px;
+    display: flex;
+}

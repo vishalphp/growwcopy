@@ -1,7 +1,9 @@
-import React from 'react'
+import React from 'react' 
 
 export default function ExplorePage() {
   return (
-    <>explore page after login</>
+    <>
+    explore page after login
+    </>
   )
 }

@@ -2,6 +2,17 @@
   text-align: center;
 }
 
+.mainwraper{
+  padding: 20px;
+}
+.wrpaerlayout{
+  display: flex;
+}
+
+.wrpaerlayout > div{
+  flex: 1;
+}
+
 
 @keyframes fadeInUp{
 
