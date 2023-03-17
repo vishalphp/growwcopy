@@ -1,19 +1,12 @@
-import React, {useContext, useEffect} from 'react'
-import { Outlet, useNavigate } from 'react-router-dom';
+import React, {useContext} from 'react'
+import { Navigate, Outlet, useLocation } from 'react-router-dom';
 import LoginContext from '../../context/LoginContext'
 
 export default function RequiredAuth() {
 
-    const navigate = useNavigate(); 
+  const location = useLocation();
 
-    const loginContex = useContext(LoginContext);
+  const loginContex = useContext(LoginContext);
  
-    useEffect(()=>{
-        // eslint-disable-next-line no-unused-expressions
-        loginContex.loginState.authToken ? '' : navigate('/login');
-    },[]);
-
- 
-
-  return <Outlet />;
+  return loginContex.loginState.authToken ? <Outlet /> : <Navigate to="/login" replace state={{ path: location.pathname }} />;
 }

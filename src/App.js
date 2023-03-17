@@ -13,6 +13,7 @@ function App() {
   return ( 
     <Routes>
          <Route path='/' element={<Layout />} >
+               <Route index element={<Login />} />
                <Route path='login' element={<Login />} />
          </Route>
          <Route element={<RequiredAuth />} >

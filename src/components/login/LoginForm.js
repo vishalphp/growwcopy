@@ -1,13 +1,14 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useContext} from 'react'
 import useAuth from '../../hooks/useAuth';
+import LoginContext from '../../context/LoginContext';
 
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function LoginForm() {
 
    const navigate = useNavigate();
-   const location = useLocation();
+   const loginContx = useContext(LoginContext);
 
     const [username, setUsername ] = useState('');
     const [usernameValid, setUsernameValid] =useState(true);
@@ -22,6 +23,11 @@ export default function LoginForm() {
     const { loginApi } = useAuth();
     
     const regxEmail = /^[A-Za-z0-9_!#$%&'*+\/=?`{|}~^.-]+@[A-Za-z0-9.-]+$/;
+
+
+    useEffect(()=>{
+      loginContx.setLoginState({});
+    },[]);
 
     const usernameHandler=(e)=>{
        setUsername(e.target.value);
