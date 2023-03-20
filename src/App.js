@@ -1,3 +1,4 @@
+import {lazy, Suspense} from 'react'
 import './App.css';
 import './styles/shared.scss';
 
@@ -5,10 +6,14 @@ import Layout from './layouts/Layout';
 import { Routes, Route } from 'react-router-dom';
 import Login  from './components/login/Login';
 import LayoutWithInvestment from './layouts/LayoutWithInvestment';
-import ExplorePage from './components/authPages/explore/ExplorePage';
-import RequiredAuth from './components/login/RequiredAuth';
-import MutualFunds from './components/authPages/mutualfunds/MutualFunds';
+import Spinner from './layouts/Spinner';
+//import ExplorePage from './components/authPages/explore/ExplorePage';
+//import RequiredAuth from './components/login/RequiredAuth';
+//import MutualFunds from './components/authPages/mutualfunds/MutualFunds';
 
+const RequiredAuth = lazy(()=> import('./components/login/RequiredAuth'));
+const ExplorePage = lazy(()=> import('./components/authPages/explore/ExplorePage')); 
+const MutualFunds = lazy(()=> import('./components/authPages/mutualfunds/MutualFunds'));
 
 function App() {
   return ( 
@@ -18,12 +23,12 @@ function App() {
                <Route path='login' element={<Login />} />
          </Route>
         
-         <Route element={<RequiredAuth />} >
+         <Route element={<Suspense fallback={<Spinner />} ><RequiredAuth /></Suspense>} >
             <Route path="/stock/" element={<LayoutWithInvestment />} >
-                      <Route path='explore' element={<ExplorePage />} />
+                      <Route path='explore' element={<Suspense fallback={<Spinner />} ><ExplorePage /></Suspense>} />
               </Route>
               <Route path="/mutual-funds/" element={<LayoutWithInvestment />} >
-                      <Route path='explore' element={<MutualFunds />} />
+                      <Route path='explore' element={<Suspense fallback={<Spinner />} ><MutualFunds /></Suspense>} />
               </Route>
           </Route>
 
