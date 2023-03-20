@@ -7,6 +7,7 @@ import Login  from './components/login/Login';
 import LayoutWithInvestment from './layouts/LayoutWithInvestment';
 import ExplorePage from './components/authPages/explore/ExplorePage';
 import RequiredAuth from './components/login/RequiredAuth';
+import MutualFunds from './components/authPages/mutualfunds/MutualFunds';
 
 
 function App() {
@@ -16,9 +17,13 @@ function App() {
                <Route index element={<Login />} />
                <Route path='login' element={<Login />} />
          </Route>
+        
          <Route element={<RequiredAuth />} >
             <Route path="/stock/" element={<LayoutWithInvestment />} >
                       <Route path='explore' element={<ExplorePage />} />
+              </Route>
+              <Route path="/mutual-funds/" element={<LayoutWithInvestment />} >
+                      <Route path='explore' element={<MutualFunds />} />
               </Route>
           </Route>
 

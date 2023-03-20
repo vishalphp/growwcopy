@@ -59,6 +59,7 @@ export default function LoginForm() {
         : resultTemp === 404
         ? setErrorMessage('API not working')
         : navigate('/stock/explore');
+        
 
         setUsername(''); 
         setPassword('');

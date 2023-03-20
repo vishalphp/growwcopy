@@ -11,6 +11,7 @@
 
 .wrpaerlayout > div{
   flex: 1;
+  text-align: left;
 }
 
 
