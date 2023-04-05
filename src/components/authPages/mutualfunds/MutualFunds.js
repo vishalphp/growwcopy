@@ -1,10 +1,23 @@
 import React from 'react'
+import useAuth from '../../../hooks/useAuth'
 
 export default function MutualFunds() {
+
+   const {refershToken} = useAuth();
+
+
+   const refreshTokenButtonHandel = () =>{
+      refershToken();
+   }
+
   return (
     <>
        <div>
         <h2>Investments</h2>
+
+        <div>
+         <button onClick={refreshTokenButtonHandel}>Refersh Token</button>
+        </div>
         
         <div className='cardrow'>
             <div className='card'>

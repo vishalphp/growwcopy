@@ -4,6 +4,8 @@ import LoginContext from '../context/LoginContext'
 
 const LoginURL = '/wp-json/jwt-auth/v1/token';
 
+const RefLoginURL = '/wp-json/jwt-auth/v1/token';
+
 const useAuth = () => {
 
     const loginContex = useContext(LoginContext);
@@ -23,7 +25,7 @@ const useAuth = () => {
                     headers: {'content-type': 'application/json' }
                     }
                 );
-                const tempLoginData = { username: responce.data.user_email, roles: responce.data.role, authToken: responce.data.token}
+                const tempLoginData = { username: responce.data.user_email, roles: responce.data.role, authToken: responce.data.token, authPassword: password}
                 loginContex.setLoginState(tempLoginData);
 
                 return 200;
@@ -35,7 +37,37 @@ const useAuth = () => {
 
     }
 
-    return { loginApi };
+    const refershToken = async() =>{
+
+        try{
+
+            const responce = await axios.post(
+                RefLoginURL,
+                JSON.stringify({
+                    username: loginContex.loginState.username,
+                    password: loginContex.loginState.authPassword
+                }),
+                {
+                headers: {'content-type': 'application/json' }
+                }
+            );  
+
+            console.log(responce);
+
+           // const tempLoginData = { username: responce.data.user_email, roles: responce.data.role, authToken: responce.data.token, authPassword: responce.data.password}
+           // loginContex.setLoginState(tempLoginData);
+
+           // return 200;
+
+        }catch(error){
+                console.log(error);
+                return error.response.data.data.status;
+        }
+
+
+    }
+
+    return { loginApi, refershToken };
 
 }
 
