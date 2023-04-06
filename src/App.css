@@ -1,6 +1,11 @@
 .App {
   text-align: center;
 }
+.warpboxauth{
+  display: inline-block;
+    word-wrap: break-word;
+    width: 500px;
+}
 
 .mainwraper{
   padding: 20px;

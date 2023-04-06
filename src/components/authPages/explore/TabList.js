@@ -10,6 +10,7 @@ export default function TabList() {
        <ul className='tablist'>
            <li><NavLink to="/stock/explore" >Stocks</NavLink></li>
            <li><NavLink to="/mutual-funds/explore">Mutual Funds</NavLink></li>
+           <li><NavLink to="/users/list/">Users List</NavLink></li>
            <li>Us Stocks</li>
        </ul>
      </>
