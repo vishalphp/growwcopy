@@ -2,13 +2,13 @@ import React, {useState, useContext} from 'react'
 import useProvateAuthAxios from '../../../hooks/useProvateAuthAxios'
 import LoginContext from '../../../context/LoginContext';
 
-const userAPIURL = '/wp-json/wp/v2/users';
+const userAPIURL = 'wp-json/wp/v2/users';
 
 export default function MutualFunds() {
 
    const [users, setUsers] = useState();
   const loginCData = useContext(LoginContext);
-  const provateAxios = useProvateAuthAxios();
+  const provateAxiosHook = useProvateAuthAxios();
 
    const refreshTokenButtonHandel = async() =>{
       
@@ -17,7 +17,7 @@ export default function MutualFunds() {
 
       try{
 
-        const resp = await provateAxios.get(userAPIURL, {
+        const resp = await provateAxiosHook.get(userAPIURL, {
             signal: abortController.signal,
             headers: {
             'Content-Type':'application/json', 
