@@ -1,13 +1,45 @@
-import React from 'react'
-import useAuth from '../../../hooks/useAuth'
+import React, {useState, useContext} from 'react'
+import useProvateAuthAxios from '../../../hooks/useProvateAuthAxios'
+import LoginContext from '../../../context/LoginContext';
+
+const userAPIURL = '/wp-json/wp/v2/users';
 
 export default function MutualFunds() {
 
-   const {refershToken} = useAuth();
+   const [users, setUsers] = useState();
+  const loginCData = useContext(LoginContext);
+  const provateAxios = useProvateAuthAxios();
 
+   const refreshTokenButtonHandel = async() =>{
+      
+      let isMounted = true;
+      const abortController = new AbortController();
 
-   const refreshTokenButtonHandel = () =>{
-      refershToken();
+      try{
+
+        const resp = await provateAxios.get(userAPIURL, {
+            signal: abortController.signal,
+            headers: {
+            'Content-Type':'application/json', 
+            'Authorization': `Bearer ${loginCData.loginState.authToken}`
+            //// withCredentials: true
+            }
+         });
+
+         console.log(resp);
+         isMounted && setUsers(resp.data);
+
+      }catch(e){
+         console.log(e);
+      }
+      
+      return()=>{
+         isMounted = false;
+         abortController.abort();
+         console.log(users);
+       };
+      
+
    }
 
   return (

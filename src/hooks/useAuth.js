@@ -52,15 +52,13 @@ const useAuth = () => {
                 }
             );  
 
-            console.log(responce);
+            loginContex.setLoginState((prev) =>{ 
+                                 return { ...prev,  authToken: responce.data.token }
+                                        });
 
-           // const tempLoginData = { username: responce.data.user_email, roles: responce.data.role, authToken: responce.data.token, authPassword: responce.data.password}
-           // loginContex.setLoginState(tempLoginData);
-
-           // return 200;
+            return responce.data.token;
 
         }catch(error){
-                console.log(error);
                 return error.response.data.data.status;
         }
 
