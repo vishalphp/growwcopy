@@ -1,0 +1,67 @@
+.displayblock{
+    display: block;
+}
+.displayflex{
+    display: flex;
+}
+
+.displayflex .flex1{
+    flex: 1;
+}
+
+.displayflex .flex2{
+    flex: 2;
+}
+
+.displayflex .pading10{
+    padding: 10px;
+}
+
+.formcss{
+    border: 1px solid #ecedef;
+    box-shadow: 0 1px 5px 0 rgba(0,0,0,.1);
+    width: 100%;
+    border-radius: 6px;
+    padding: 1px;
+}
+
+.topnavsitem{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.topnavsitem a {
+    text-decoration: none;
+    font-size: 18px;
+}
+.logomaxwidth{
+    max-width: 148px;
+    width: 100%;
+}
+
+.serchtextinput{
+    border: 1px solid #fff;
+    padding: 10px 20px;
+    width: 100%;
+    max-width: 260px;
+}
+.fontawsearch{
+    padding: 10px 10px;
+    border: none;
+    background: #fff;
+}
+
+.displayblock{
+    display:block;
+}
+
+.topnavsitem span{
+    cursor: pointer;
+}
+.comenuname{
+    display: inline-block;
+    width: 260px;
+}
+.crim{
+    display: block;
+}

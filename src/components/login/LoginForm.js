@@ -58,7 +58,7 @@ export default function LoginForm() {
        ? setErrorMessage('someting went wrong')  
         : resultTemp === 404
         ? setErrorMessage('API not working')
-        : navigate('/stock/explore');
+        : navigate('/explore/stock');
         
 
         setUsername(''); 

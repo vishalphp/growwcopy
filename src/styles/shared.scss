@@ -10,6 +10,10 @@
     color: $constantWhite;
 }
 
+.topnavwrap a.active{
+    color: $primaryClr;
+}
+
 .card{
     background: $cardBackground; 
     box-shadow: 0 1px 7px 0 $boxShadow;

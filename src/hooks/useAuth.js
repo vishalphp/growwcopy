@@ -24,8 +24,8 @@ const useAuth = () => {
                     {
                     headers: {'content-type': 'application/json' }
                     }
-                );
-                const tempLoginData = { username: responce.data.user_email, roles: responce.data.role, authToken: responce.data.token, authPassword: password}
+                ); 
+                const tempLoginData = { id: responce.data.id, name: responce.data.user_display_name, username: responce.data.user_email, roles: responce.data.role, authToken: responce.data.token, authPassword: password}
                 loginContex.setLoginState(tempLoginData);
 
                 return 200;

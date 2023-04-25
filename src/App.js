@@ -26,11 +26,11 @@ function App() {
          </Route>
         
          <Route element={<Suspense fallback={<Spinner />} ><RequiredAuth /></Suspense>} >
-            <Route path="/stock/" element={<LayoutWithInvestment />} >
-                      <Route path='explore' element={<Suspense fallback={<Spinner />} ><ExplorePage /></Suspense>} />
+            <Route path="/explore/" element={<LayoutWithInvestment />} >
+                      <Route path='stock' element={<Suspense fallback={<Spinner />} ><ExplorePage /></Suspense>} />
               </Route>
-              <Route path="/mutual-funds/" element={<LayoutWithInvestment />} >
-                      <Route path='explore' element={<Suspense fallback={<Spinner />} ><MutualFunds /></Suspense>} />
+              <Route path="/explore/" element={<LayoutWithInvestment />} >
+                      <Route path='mutual-funds' element={<Suspense fallback={<Spinner />} ><MutualFunds /></Suspense>} />
               </Route>
               <Route path="/users/" element={<LayoutWithInvestment />} >
                       <Route path='list' element={<Suspense fallback={<Spinner />} ><UsersList /></Suspense>} />
