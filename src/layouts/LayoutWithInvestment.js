@@ -1,6 +1,7 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom';
 import Header1 from '../components/authPages/headers/Header1';
+import Footer from '../components/authPages/footer/Footer';
 
 const LayoutWithInvestment =()=> {
   return (
@@ -21,8 +22,8 @@ const LayoutWithInvestment =()=> {
         </div>
         </div>
       </main>
-      <div>Footer Section Will Come Here ....</div>
       </div>
+      <Footer />
       </>
 
   )

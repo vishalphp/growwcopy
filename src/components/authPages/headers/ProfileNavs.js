@@ -1,5 +1,5 @@
 import React, {useState, useContext} from 'react'
-import { NavLink, Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { FaRegBell } from "react-icons/fa";
 import { FaWallet } from "react-icons/fa";
 import { FaRegCalendarAlt } from "react-icons/fa";
