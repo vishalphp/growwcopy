@@ -1,6 +1,10 @@
 import React from 'react'
 import styleCompVariab from 'styled-components'
 import lightLogoImage from '../../../asset/logo-light.svg'
+import applogoStore from '../../../asset/app-store-logo.0958106d.svg'
+import googleplayStore from '../../../asset/google-play-badge.e21ffdaa.svg'
+
+
 import { Link } from 'react-router-dom';
 
 import { BsFacebook } from "react-icons/bs";
@@ -11,9 +15,15 @@ import { BsYoutube } from "react-icons/bs";
 import { BsTelegram } from "react-icons/bs";
 
 const WrapperFooter = styleCompVariab.div`
+
+display:block;
+ 
+`;
+
+const BackgroundBlac = styleCompVariab.div`
 background: #1e2232;
 color: #fff;
-padding:20px;
+padding:20px 20px 0px 20px;
 `;
 
 const DisplayBlockwithWidth = styleCompVariab.div`
@@ -33,6 +43,35 @@ display:block;
 
 & .colfo4.pan1{
   flex:1.5;
+}
+
+& .colfo2{
+    flex:1;
+  padding:20px 0px;
+}
+
+& .leftalign{
+  text-align:left;
+}
+
+& .rightalign{
+  text-align:right;
+}
+
+& img.appstore{
+  width:147px;
+  margin: 0px 15px;
+}
+
+& img.googstore{
+  width:162px;
+  margin: 0px 15px;
+}
+
+& .fm77HeartImg {
+    font-size: 32px;
+    color: #eb5b3c;
+    margin: 0 4px;
 }
 
 `;
@@ -91,11 +130,80 @@ width:150px;
 
 `;
 
+const LineWhite = styleCompVariab.div`
+
+    height: 1px;
+    opacity: .1;
+    border-bottom: 1px solid #fff;
+    margin-top: 30px;
+
+`;
+
+const FooterPartSecond = styleCompVariab.div`
+
+display:block;
+
+& .blackwrape{
+background:#191c27;
+}
+`;
+
+const DisplayFlexBox = styleCompVariab.div`
+display:flex;
+width:1100px;
+margin:auto;
+`;
+
+const FlexBoxInnerStyle= styleCompVariab.div`
+
+flex: ${props => props.bflex};
+color: #${props => props.bcolor};
+text-align: ${props => props.balign};
+padding: ${props => props.bpadding}px;
+font-size: ${props=> props.bfontsize}px;
+font-weight: ${props => props.bfontweight};
+`;
+
+const FooterParttwoLinks = styleCompVariab.div`
+
+display:flex;
+max-width:1100px;
+margin:auto;
+
+& .labelbox{
+  flex:1;
+  color:#fff;
+}
+
+& .linkbox{
+  flex:3;
+}
+
+& .linkbox a{
+  color:#00d09c;
+}
+
+& ul{
+  display:block;
+  list-style-type:none;
+  padding:0px;
+  margin:0px;
+}
+& ul li{
+  display: inline-block;
+  list-style-type: none;
+  padding: 0px 9px;
+  margin: 0px;
+  text-decoration: none;
+}
+
+`;
+
 export default function Footer() {
   return (
       <>
         <WrapperFooter>
-
+<BackgroundBlac className="backgroundblac">
           <DisplayBlockwithWidth>
 
          <div className='panelfooter1 displayflex'>
@@ -107,7 +215,7 @@ export default function Footer() {
                <div className='addresstext'>
                   Vaishnavi Tech Park, 3rd Floor
                   Sarjapur Main Road, Bellandur
-                  Bengaluru – 560103
+                  Bengaluru - 560103
                </div>
                <div className='contactus'>
                 <UlWithoutdotandPadding>
@@ -176,25 +284,129 @@ export default function Footer() {
 
          </div>
 
-         <div className='panelfooter2 displayflex' >
+         <LineWhite className='linewhite'></LineWhite>
 
-         <div className='colfo2 pan21'>
-             x 21
+         <DisplayBlockwithWidth className='panelfooter2 displayflex' >
+
+         <div className='colfo2 pan21 leftalign'>
+              <div class="col l6 fm77CompanyName valign-wrapper">ⓒ&nbsp;2016-2023 Groww. All rights reserved, Built with <span class="fm77HeartImg">♥</span>in India</div>
            </div>
            
-           <div className='colfo2 pan22'>
-             x 22
+           <div className='colfo2 pan22 rightalign'>
+               <span><img src={applogoStore} alt="app store" className='appstore' /></span>
+               <span><img src={googleplayStore} alt="app store" className='googstore' /></span>
            </div>
 
-         </div>
-
-         <div className='panelfooter3 displayflex'>
-           
-           xyz3
-
-         </div>
-         
          </DisplayBlockwithWidth>
+
+         </DisplayBlockwithWidth>
+
+</BackgroundBlac>
+         
+         <FooterPartSecond className='panelfooter3 displayflex'>
+           
+           <div className='blackwrape'>
+         
+           <DisplayFlexBox className='wrapfoter21'>
+
+                <FlexBoxInnerStyle className='leftalign' bfontsize="15" bfontweight="500" bflex="1" bcolor='fff' balign="left" bpadding="20" >MOST POPULAR ON GROWW</FlexBoxInnerStyle>
+                <FlexBoxInnerStyle className='rightalign' bfontsize="15" bfontweight="500" bflex="1" bcolor='fff' balign="right" bpadding="20">VERSION - 3.9.3</FlexBoxInnerStyle>
+           
+           </DisplayFlexBox>
+
+          <FooterParttwoLinks>
+
+            <div className='labelbox'>
+               STOCK MARKET INDICES :
+            </div>
+            <div className='linkbox'>
+ 
+              <ul>
+                <li>
+                  <Link to="">S&P BSE SENSEX</Link>
+                </li>
+                <li>
+                  <Link to="">S&P BSE 100</Link>
+                </li>
+                <li>
+                  <Link to="">NIFTY 100</Link>
+                </li>
+                <li>
+                  <Link to="">NIFTY 50</Link>
+                </li>
+                <li>
+                  <Link to="">NIFTY MIDCAP 100</Link>
+                </li>
+                <li>
+                  <Link to="">NIFTY BANK</Link>
+                </li>
+                <li>
+                  <Link to="">NIFTY NEXT 50</Link>
+                </li>
+                
+              </ul>
+                
+            </div>
+
+          </FooterParttwoLinks>
+
+          
+          <FooterParttwoLinks>
+
+            <div className='labelbox'>
+              POPULAR MUTUAL FUNDS :
+            </div>
+            <div className='linkbox'>
+ 
+              <ul>
+                <li>
+                  <Link to="">S&P BSE SENSEX</Link>
+                </li>
+                <li>
+                  <Link to="">S&P BSE SENSEX</Link>
+                </li>
+                <li>
+                  <Link to="">S&P BSE SENSEX</Link>
+                </li>
+                <li>
+                  <Link to="">S&P BSE SENSEX</Link>
+                </li>
+                <li>
+                  <Link to="">S&P BSE SENSEX</Link>
+                </li>
+                <li>
+                  <Link to="">S&P BSE SENSEX</Link>
+                </li>
+                <li>
+                  <Link to="">S&P BSE SENSEX</Link>
+                </li>
+                <li>
+                  <Link to="">S&P BSE SENSEX</Link>
+                </li>
+                <li>
+                  <Link to="">S&P BSE SENSEX</Link>
+                </li>
+                <li>
+                  <Link to="">S&P BSE SENSEX</Link>
+                </li>
+                <li>
+                  <Link to="">S&P BSE SENSEX</Link>
+                </li>
+                <li>
+                  <Link to="">S&P BSE SENSEX</Link>
+                </li>
+              </ul>
+            </div>
+
+
+            </FooterParttwoLinks>
+          
+
+         
+           </div>
+           
+
+         </FooterPartSecond>
 
         </WrapperFooter>
       </>
