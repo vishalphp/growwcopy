@@ -18,6 +18,7 @@ export default function Clock() {
 
     const ClockTimer = () =>{
 
+    
         const date = new Date();
         let day = date.getDate();
         let month = date.getMonth() + 1;
@@ -25,9 +26,12 @@ export default function Clock() {
         let hours = date.getHours();
         let minute = date.getMinutes();
         let second = date.getSeconds();
-
-        let currentDate = `${n(day)}/${n(month)}/${n(year)} ${n(hours)}:${n(minute)}:${n(second)}`;
+        let fulltime12 = date.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true });
         
+
+        //let currentDate = `${n(day)}/${n(month)}/${n(year)} ${n(hours)}:${n(minute)}:${n(second)}`;
+        let currentDate = `${n(day)}/${n(month)}/${n(year)} ${fulltime12}`;
+         
         //return currentDate; // "17-6-2022"
         setClok(currentDate);
 
