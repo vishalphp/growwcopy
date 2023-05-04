@@ -26,11 +26,15 @@ export default function Clock() {
         let minute = date.getMinutes();
         let second = date.getSeconds();
 
-        let currentDate = `${day}-${month}-${year}-${hours}-${minute}-${second}`;
+        let currentDate = `${n(day)}/${n(month)}/${n(year)} ${n(hours)}:${n(minute)}:${n(second)}`;
         
         //return currentDate; // "17-6-2022"
         setClok(currentDate);
 
+    }
+
+    const n = (n) => {
+        return n > 9 ? "" + n: "0" + n;
     }
 
     return clok;
