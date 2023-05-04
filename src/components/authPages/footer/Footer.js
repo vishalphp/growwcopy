@@ -143,8 +143,10 @@ const FooterPartSecond = styleCompVariab.div`
 
 display:block;
 
+
 & .blackwrape{
 background:#191c27;
+padding-bottom:20px;
 }
 `;
 
@@ -169,6 +171,7 @@ const FooterParttwoLinks = styleCompVariab.div`
 display:flex;
 max-width:1100px;
 margin:auto;
+padding: 10px 0;
 
 & .labelbox{
   flex:1;
@@ -195,6 +198,56 @@ margin:auto;
   padding: 0px 9px;
   margin: 0px;
   text-decoration: none;
+}
+
+`;
+
+const FooterPartthreeLinks = styleCompVariab.div`
+
+display:flex;
+max-width:1100px;
+margin:auto;
+padding: 10px 0;
+
+& .labelbox{
+  flex:0;
+  color:#7c7e8c;
+}
+
+& .linkbox{
+  flex:3;
+}
+
+& .linkbox a{
+  color:#7c7e8c;
+}
+
+& .linkbox a:hover{
+  color:#fff;
+}
+
+& ul{
+  display:block;
+  list-style-type:none;
+  padding:0px;
+  margin:0px;
+}
+& ul li{
+  display: inline-block;
+  list-style-type: none;
+  padding: 0px 9px;
+  margin: 0px;
+  text-decoration: none;
+}
+
+& ul li:after {
+  content: '';
+  width: 1px;
+  height: 12px;
+  background: #7c7e8c;
+  position: absolute;
+  margin-left: 6px;
+  margin-top: 7px;
 }
 
 `;
@@ -401,12 +454,132 @@ export default function Footer() {
 
             </FooterParttwoLinks>
           
+            <FooterParttwoLinks>
+
+<div className='labelbox'>
+MUTUAL FUNDS COMPANIES :
+</div>
+<div className='linkbox'>
+
+  <ul>
+    <li>
+      <Link to="">S&P BSE SENSEX</Link>
+    </li>
+    <li>
+      <Link to="">S&P BSE SENSEX</Link>
+    </li>
+    <li>
+      <Link to="">S&P BSE SENSEX</Link>
+    </li>
+    <li>
+      <Link to="">S&P BSE SENSEX</Link>
+    </li>
+    <li>
+      <Link to="">S&P BSE SENSEX</Link>
+    </li>
+    <li>
+      <Link to="">S&P BSE SENSEX</Link>
+    </li>
+    <li>
+      <Link to="">S&P BSE SENSEX</Link>
+    </li>
+    <li>
+      <Link to="">S&P BSE SENSEX</Link>
+    </li>
+    <li>
+      <Link to="">S&P BSE SENSEX</Link>
+    </li>
+    <li>
+      <Link to="">S&P BSE SENSEX</Link>
+    </li>
+    <li>
+      <Link to="">S&P BSE SENSEX</Link>
+    </li>
+    <li>
+      <Link to="">S&P BSE SENSEX</Link>
+    </li>
+    <li>
+      <Link to="">S&P BSE SENSEX</Link>
+    </li>
+    <li>
+      <Link to="">S&P BSE SENSEX</Link>
+    </li>
+    <li>
+      <Link to="">S&P BSE SENSEX</Link>
+    </li>
+    <li>
+      <Link to="">S&P BSE SENSEX</Link>
+    </li>
+    <li>
+      <Link to="">S&P BSE SENSEX</Link>
+    </li>
+    <li>
+      <Link to="">S&P BSE SENSEX</Link>
+    </li>
+    <li>
+      <Link to="">S&P BSE SENSEX</Link>
+    </li>
+    <li>
+      <Link to="">S&P BSE SENSEX</Link>
+    </li>
+  </ul>
+</div>
+
+</FooterParttwoLinks>
+
+
+
+
+<FooterPartthreeLinks>
+
+<div className='labelbox'>
+  OTHERS:
+</div>
+<div className='linkbox'>
+
+  <ul>
+    <li>
+      <Link to="">NSE</Link>
+    </li>
+    <li>
+      <Link to="">BSE</Link>
+    </li>
+    <li>
+      <Link to="">Terms and Conditions</Link>
+    </li>
+    <li>
+      <Link to="">Policies and Procedures</Link>
+    </li>
+    <li>
+      <Link to="">Regulatory & Other Info</Link>
+    </li>
+    <li>
+      <Link to="">Privacy Policy</Link>
+    </li>
+    <li>
+      <Link to="">Disclosure</Link>
+    </li>
+    <li>
+      <Link to="">Bug Bounty</Link>
+    </li>
+    <li>
+      <Link to="">Download Forms</Link>
+    </li>
+    <li>
+      <Link to="">Investor Charter and Grievance</Link>
+    </li>
+  </ul>
+</div>
+
+</FooterPartthreeLinks>
 
          
            </div>
            
 
          </FooterPartSecond>
+
+
 
         </WrapperFooter>
       </>
