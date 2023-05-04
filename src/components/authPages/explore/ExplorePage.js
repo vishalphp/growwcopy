@@ -1,9 +1,11 @@
 import React from 'react' 
 import './explore.css'
+import Clock from '../../clock/Clock'
 
 export default function ExplorePage() {
   return (
     <>
+       <div><Clock /></div>
        <div class="se24MarketOpenTxt fs14 fw500 clrSubText">MARKET CLOSES AT 03:30 PM</div>
        <div>
         <h2>Index</h2>

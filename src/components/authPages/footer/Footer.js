@@ -255,6 +255,9 @@ padding: 10px 0;
 export default function Footer() {
   return (
       <>
+
+
+
         <WrapperFooter>
 <BackgroundBlac className="backgroundblac">
           <DisplayBlockwithWidth>
