@@ -5,16 +5,19 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { LoginContextProvider } from './context/LoginContext';
+import { LiveShareMarketUpdateProvider } from './context/LiveShareMarketUpdate';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <LoginContextProvider>
-    <BrowserRouter>
-      <Routes>
-        <Route path='/*' element={<App />}></Route>
-      </Routes>
-    </BrowserRouter>
+      <LiveShareMarketUpdateProvider>     
+            <BrowserRouter>
+                  <Routes>
+                       <Route path='/*' element={<App />}></Route>
+                  </Routes>
+            </BrowserRouter>
+      </LiveShareMarketUpdateProvider> 
     </LoginContextProvider>
   </React.StrictMode>
 );

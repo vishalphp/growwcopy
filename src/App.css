@@ -16,10 +16,16 @@
   display: flex;
 }
 
-.wrpaerlayout > div{
-  flex: 1;
+.wrpaerlayout > div{ 
   text-align: left;
 }
+.wrpaerlayout .midleftsection{
+  flex: 2;
+}
+.wrpaerlayout .ivestmentpanel{
+  flex: 1;
+}
+
 .profilewrap{
   position: relative;
 }

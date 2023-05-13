@@ -1,0 +1,68 @@
+.cardrow h2.heading{
+    display:block;
+    color: #000;
+    font-size: 20px;
+    font-weight: 600;
+}
+.wraptop_gainer.listingshr{
+   flex: 1;
+   cursor: pointer;
+   margin: 8px;
+   padding: 10px;
+   position: relative;
+   transition: transform .3s ease;
+   border-radius: 8px;
+   background: #fff;
+   box-shadow: 0 1px 7px 0 rgba(0,0,0,.1);
+}
+.listingshr img{
+    width: 100%;
+}
+.share_name{
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px 0px;
+    height: 40px;
+}
+.market_price{
+    font-size: 17px;
+    font-weight: 500;
+}
+.perctge_calulte{
+    font-size: 16px;
+    color: #00d09c;
+    font-weight: 600;
+    padding: 6px 0px;
+}
+.wrapshare{
+   display: flex;
+   justify-content: space-around;
+   padding: 3px;
+}
+.widthfix{
+    width: 100%;
+    max-width: 700px;
+}
+
+.marketcapwrapapnel{
+    --table-container-border: 1px solid #ecedef;
+    border-radius: 8px 8px 0 0;
+    border: 1px solid #ecedef;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,.1);
+    margin-bottom: -2px;
+    flex-direction: column;
+}
+
+.heading_boxwrap, .wraplisting{
+    width: 100%;
+    display: flex;
+    flex: none;
+    border-bottom: 1px dashed #ecedef;
+}
+.heading_boxwrap > div, .wraplisting > div{
+    flex: 1;
+    padding: 20px;
+}
+.heading_boxwrap .col1, .wraplisting .col1{
+    flex: 2;
+}

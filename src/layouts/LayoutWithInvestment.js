@@ -1,9 +1,41 @@
-import React from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { Outlet } from 'react-router-dom';
 import Header1 from '../components/authPages/headers/Header1';
 import Footer from '../components/authPages/footer/Footer';
 
+import useLiveMarketUpdate from '../hooks/useLiveMarketUpdate';
+import LiveShareMarketUpdateContext from '../context/LiveShareMarketUpdate';
+
 const LayoutWithInvestment =()=> {
+
+ const [liveUpdateChange, setLiveUpdateChange]= useState(true);
+ const liveMarketUpCtx = useContext(LiveShareMarketUpdateContext);
+
+ const {LiveMarketUpdateAPI, ShareValueUpdate}  = useLiveMarketUpdate();
+
+ const UpdateLiveFunctionRun = async() =>{
+  await LiveMarketUpdateAPI();
+ }
+
+ const ShareValueUpdateRun = async() =>{
+  await ShareValueUpdate();
+ }
+
+  useEffect(()=>{
+     const clearTimeoutLivCtx = setTimeout(()=>{
+      UpdateLiveFunctionRun();
+      ShareValueUpdateRun();
+      //setLiveUpdateChange(!liveUpdateChange);
+     },1000);
+
+     return ()=>{
+      clearTimeout(clearTimeoutLivCtx);
+     }
+      
+  },[]);
+
+ // console.log(liveMarketUpCtx.liveShareState);
+
   return (
     
       <>
