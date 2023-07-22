@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import Header1 from '../components/authPages/headers/Header1';
 import Footer from '../components/authPages/footer/Footer';
 
+
 import useLiveMarketUpdate from '../hooks/useLiveMarketUpdate';
 import LiveShareMarketUpdateContext from '../context/LiveShareMarketUpdate';
 
@@ -22,17 +23,18 @@ const LayoutWithInvestment =()=> {
  }
 
   useEffect(()=>{
-     const clearTimeoutLivCtx = setTimeout(()=>{
+    // const clearTimeoutLivCtx = setTimeout(()=>{
       UpdateLiveFunctionRun();
       ShareValueUpdateRun();
       //setLiveUpdateChange(!liveUpdateChange);
-     },1000);
+    // },1000000);
 
-     return ()=>{
-      clearTimeout(clearTimeoutLivCtx);
-     }
+    // return ()=>{
+     // clearTimeout(clearTimeoutLivCtx);
+    // }
       
   },[]);
+
 
  // console.log(liveMarketUpCtx.liveShareState);
 

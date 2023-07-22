@@ -1,4 +1,4 @@
-import {lazy, Suspense} from 'react'
+import {lazy, Suspense, useEffect, useState} from 'react'
 import './App.css';
 import './styles/shared.scss';
 
@@ -7,6 +7,7 @@ import { Routes, Route } from 'react-router-dom';
 import Login  from './components/login/Login';
 import LayoutWithInvestment from './layouts/LayoutWithInvestment';
 import Spinner from './layouts/Spinner';
+
 
 //import ExplorePage from './components/authPages/explore/ExplorePage';
 //import RequiredAuth from './components/login/RequiredAuth';
@@ -17,7 +18,11 @@ const ExplorePage = lazy(()=> import('./components/authPages/explore/ExplorePage
 const MutualFunds = lazy(()=> import('./components/authPages/mutualfunds/MutualFunds'));
 const UsersList = lazy(()=> import('./components/authPages/users/UsersList'));
 
+
+
 function App() {
+
+
   return ( 
     <Routes>
          <Route path='/' element={<Layout />} >

@@ -1,17 +1,62 @@
-import React, {useContext, useState} from 'react' 
+import React, {useContext, useEffect, useState} from 'react' 
 import './explore.css'
 import Clock from '../../clock/Clock';
+
+
+import { io } from "socket.io-client";
 
 import stockMarket from '../../../asset/stock-market.png'
 
 import LiveShareMarketUpdateContext from '../../../context/LiveShareMarketUpdate'
 
+let startbox = true;
+
 export default function ExplorePage() {
 
-  const liveSenxUpdateCtx = useContext(LiveShareMarketUpdateContext);
+
+const liveSenxUpdateCtx = useContext(LiveShareMarketUpdateContext);
+
+
+
+    const socket = io("http://localhost:8080");
+  useEffect(()=>{
+
+    //to recive first message from server
+    //socket.on("indexfundsresult",(msg)=>{
+        //console.log(msg);
+    //}) 
+   const target = {};
+     socket.on("indexfundsresult",(msg)=>{  
+        msg.forEach(key => target[key.meta_key] = key.meta_value);
+        liveSenxUpdateCtx.setLiveShareState((prev)=>{
+          console.log(prev);
+          return {...prev, marketindex: target}
+        });
+    })
+
+    
+   
+    //message send to server
+    //socket.emit("messagefromclient", "hi this is from client")
+    startbox = false;
+},[socket]);
+
+//console.log(liveSenxUpdateCtx.liveShareState);
+
+/*   useEffect(()=>{
+    const socket = io("http://localhost:5000");
+    //to recive first message from server
+    socket.on("firstmessage",(msg)=>{
+        console.log(msg);
+    })
+    //message send to server
+    //socket.emit("messagefromclient", "hi this is from client")
+
+},[]);*/
+
 
   // top gainers
-   const bb = liveSenxUpdateCtx.liveShareState?.arrayMap?.filter((item,index)=>{
+   const bb = liveSenxUpdateCtx?.liveShareState?.arrayMap?.filter((item,index)=>{
      const res = JSON.parse(item);
      return res.acf.close_price < res.acf.market_price
    });
@@ -31,7 +76,7 @@ export default function ExplorePage() {
    });
    
 // top losers
-const filterLoser = liveSenxUpdateCtx.liveShareState?.arrayMap?.filter((item,index)=>{
+const filterLoser = liveSenxUpdateCtx?.liveShareState?.arrayMap?.filter((item,index)=>{
   const res = JSON.parse(item);
   return res.acf.close_price > res.acf.market_price
 });
@@ -46,7 +91,7 @@ const MapedTopLosers = filterLoser?.map((item, ind) =>{
    <div className='imagearea'><img src={stockMarket} alt={res?.acf?.shares_name}/></div>
    <div className='share_name'>{res?.acf?.shares_name}</div>
    <div className='market_price'>&#8377;{(+(res?.acf?.market_price)).toFixed(2)}</div>
-   <div className='perctge_calulte'>{  ((100 * (res?.acf?.market_price - res?.acf?.close_price)) / res?.acf?.close_price).toFixed(2)}%</div>
+   <div className='perctge_calulte'>{  ((100 * (res?.acf?.close_price - res?.acf?.market_price)) / res?.acf?.market_price).toFixed(2)}%</div>
    </div></>); 
 });
 
@@ -57,6 +102,7 @@ const filterMarketCap = liveSenxUpdateCtx.liveShareState?.arrayMap?.sort((item1,
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
    return res2.acf.market_cap - res.acf.market_cap
 });
+
 
 const MapedTopMarketCap = filterMarketCap?.map((item, ind) =>{
  const res = JSON.parse(item);
@@ -83,17 +129,17 @@ const MapedTopMarketCap = filterMarketCap?.map((item, ind) =>{
        <div className='card'> 
             NIFTY 50
              <br/>
-           {liveSenxUpdateCtx.liveShareState?.marketindex?.nifty_50}
+           {liveSenxUpdateCtx?.liveShareState?.marketindex?.nifty_50}
        </div>
        <div className='card'>
            SENSEX
              <br/>
-             {liveSenxUpdateCtx.liveShareState?.marketindex?.sensex}
+             {liveSenxUpdateCtx?.liveShareState?.marketindex?.sensex}
        </div>
        <div className='card '>
            BANK NIFTY 
              <br/>
-             {liveSenxUpdateCtx.liveShareState?.marketindex?.nifty_bank}
+             {liveSenxUpdateCtx?.liveShareState?.marketindex?.nifty_bank}
        
        </div>
       </div>

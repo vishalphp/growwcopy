@@ -9,7 +9,6 @@ import { LiveShareMarketUpdateProvider } from './context/LiveShareMarketUpdate';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
     <LoginContextProvider>
       <LiveShareMarketUpdateProvider>     
             <BrowserRouter>
@@ -19,7 +18,6 @@ root.render(
             </BrowserRouter>
       </LiveShareMarketUpdateProvider> 
     </LoginContextProvider>
-  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
