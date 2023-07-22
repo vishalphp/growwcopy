@@ -10,15 +10,13 @@ import stockMarket from '../../../asset/stock-market.png'
 import LiveShareMarketUpdateContext from '../../../context/LiveShareMarketUpdate'
 
 let startbox = true;
+const socket = io("http://localhost:8080");
 
 export default function ExplorePage() {
 
 
 const liveSenxUpdateCtx = useContext(LiveShareMarketUpdateContext);
 
-
-
-    const socket = io("http://localhost:8080");
   useEffect(()=>{
 
     //to recive first message from server
@@ -26,14 +24,22 @@ const liveSenxUpdateCtx = useContext(LiveShareMarketUpdateContext);
         //console.log(msg);
     //}) 
    const target = {};
-     socket.on("indexfundsresult",(msg)=>{  
+     socket.on("indexfundsresult",(msg, callback)=>{  
         msg.forEach(key => target[key.meta_key] = key.meta_value);
         liveSenxUpdateCtx.setLiveShareState((prev)=>{
-          console.log(prev);
           return {...prev, marketindex: target}
         });
+
+        callback({status: 'ok'});
     })
 
+    // socket.emit("datareturned","passed data from client") // if no callback
+   /* socket.emit("datareturned","passed data from client",  (callback_responce)=>{
+      console.log(callback_responce);
+    });*/
+    /*socket.on("datareturned_callback", (callback_responce)=>{
+      console.log(callback_responce);
+    })*/
     
    
     //message send to server
