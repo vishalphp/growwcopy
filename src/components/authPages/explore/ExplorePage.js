@@ -16,36 +16,37 @@ export default function ExplorePage() {
 
 
 const liveSenxUpdateCtx = useContext(LiveShareMarketUpdateContext);
-
+   const target = {};
   useEffect(()=>{
 
     //to recive first message from server
     //socket.on("indexfundsresult",(msg)=>{
         //console.log(msg);
     //}) 
-   const target = {};
+
      socket.on("indexfundsresult",(msg, callback)=>{  
         msg.forEach(key => target[key.meta_key] = key.meta_value);
         liveSenxUpdateCtx.setLiveShareState((prev)=>{
           return {...prev, marketindex: target}
         });
-
         callback({status: 'ok'});
     })
-
-    // socket.emit("datareturned","passed data from client") // if no callback
-   /* socket.emit("datareturned","passed data from client",  (callback_responce)=>{
-      console.log(callback_responce);
-    });*/
-    /*socket.on("datareturned_callback", (callback_responce)=>{
-      console.log(callback_responce);
-    })*/
-    
    
     //message send to server
     //socket.emit("messagefromclient", "hi this is from client")
     startbox = false;
 },[socket]);
+
+useEffect(()=>{ 
+      //send data to client
+      const tempNumber = Math.floor((Math.random()*10000));
+      const updateRef = {
+         'nifity50':  (tempNumber * 2) + 1,
+         'sensex': (((tempNumber * 8) / 2) * 2) + 1,
+         'banknifty' : (((tempNumber * 2) / 4) * 2) + 5,
+      };
+      socket.emit("updatewpsql", updateRef);
+},[target]);
 
 //console.log(liveSenxUpdateCtx.liveShareState);
 
